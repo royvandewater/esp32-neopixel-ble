@@ -7,7 +7,6 @@
 #include <BLEDevice.h>
 #include <BLEUtils.h>
 #include <BLEServer.h>
-#include <PixelRing.h>
 
 
 // See the following for generating UUIDs:
@@ -18,7 +17,6 @@
 #define COMMAND_CHARACTERISTIC_UUID "04b29961-90fd-4ee7-bb48-f203bde84f44"
 #define PIN 22
 
-PixelRing ring2 = PixelRing(PIN, 24);
 Adafruit_NeoPixel ring = Adafruit_NeoPixel(24, PIN, NEO_GRB + NEO_KHZ800);
 uint32_t nextColor = ring.Color(64, 64, 0);
 uint32_t currentColor = ring.Color(0, 0, 0);
