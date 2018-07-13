@@ -1,6 +1,7 @@
 #include <PixelRing.h>
 #define PIN 22
 
+bool flourish = false;
 PixelRing ring = PixelRing(PIN, 22);
 
 void setup() {
@@ -16,7 +17,15 @@ void loop() {
     uint8_t r = rand() % 255;
     uint8_t g = rand() % 255;
     uint8_t b = rand() % 255;
-    ring.flourish(r, g, b);
+
+    if (flourish) {
+      Serial.println("Flourish");
+      ring.flourish(r, g, b);
+    } else {
+      Serial.println("Pulse");
+      ring.pulse(r, g, b);
+    }
+    flourish = !flourish;
   }
 
   ring.render();
