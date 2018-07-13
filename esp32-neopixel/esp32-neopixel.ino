@@ -13,17 +13,17 @@ void setup() {
 
 void loop() {
   if (ring.animationComplete()) {
-    delay(1000);
-    uint8_t r = rand() % 255;
-    uint8_t g = rand() % 255;
-    uint8_t b = rand() % 255;
-
     if (flourish) {
+      delay(1000);
       Serial.println("Flourish");
-      ring.flourish(r, g, b);
+      uint8_t r = rand() % 255;
+      uint8_t g = rand() % 255;
+      uint8_t b = rand() % 255;
+      ring.setColor(r, g, b);
+      ring.flourish();
     } else {
       Serial.println("Pulse");
-      ring.pulse(r, g, b);
+      ring.pulse();
     }
     flourish = !flourish;
   }
